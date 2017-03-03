@@ -1,12 +1,13 @@
 // set up ======================================================================
-var express        = require('express'),
-	app            = express(),                     // create our app w/ express
-	mongoose       = require('mongoose'),           // mongoose for mongodb
-	database       = require('./config/database'),
-	morgan         = require('morgan'),             // log requests to the console (express4)
-	bodyParser     = require('body-parser'),        // pull information from HTML POST (express4)
-	methodOverride = require('method-override'),    // simulate DELETE and PUT (express4)
-	port           = process.env.PORT || 3000;
+const express        = require('express'),
+	  app            = express(),                     // create our app w/ express
+	  mongoose       = require('mongoose'),           // mongoose for mongodb
+	  database       = require('./config/database'),  // mongodb config
+	  pug			 = require('pug'),				  // pug compiler
+	  morgan         = require('morgan'),             // log requests to the console (express4)
+	  bodyParser     = require('body-parser'),        // pull information from HTML POST (express4)
+	  methodOverride = require('method-override'),    // simulate DELETE and PUT (express4)
+	  port           = process.env.PORT || 3000;
 
 // configuration ===============================================================
 mongoose.connect(database.url);                                                // connect to mongoDB database on localhost
@@ -18,6 +19,12 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json', limit: '50mb' })); /
 app.use(methodOverride());
 
 app.set('view engine', 'pug');
+
+app.get('/', (req, res) => {
+	res.render('template', {
+		name: 'Brian'
+	});
+});
 
 // listen (start app with node server.js) ======================================
 app.listen(port);
