@@ -1,20 +1,18 @@
 {
-  "name": "gulp-node-template",
+  "name": "mean-template",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Brian Emilius <brian@brianemilius.com>",
   "license": "MIT",
   "dependencies": {
     "angular": "^1.6.2",
     "body-parser": "^1.17.0",
     "express": "^4.15.0",
-    "global": "^4.3.1",
     "gulp": "^3.9.1",
-    "jshint": "^2.9.4",
     "materialize": "^1.0.0",
     "method-override": "^2.3.7",
     "mongodb": "^2.2.24",

@@ -11,7 +11,7 @@ const express        = require('express'),
 
 // configuration ===============================================================
 mongoose.connect(database.url);                                                // connect to mongoDB database on localhost
-app.use(express.static(__dirname + '/public'));                                // set the static files location /public/img will be /img for users
+//app.use(express.static(__dirname + '/public'));                                // set the static files location /public/img will be /img for users
 app.use(morgan('dev'));                                                        // log every request to the console
 app.use(bodyParser.urlencoded({'extended': 'true', limit: '50mb'}));           // parse application/x-www-form-urlencoded
 app.use(bodyParser.json());                                                    // parse application/json
@@ -19,12 +19,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json', limit: '50mb' })); /
 app.use(methodOverride());
 
 app.set('view engine', 'pug');
-
-app.get('/', (req, res) => {
-	res.render('template', {
-		name: 'Brian'
-	});
-});
+require('./app/app-routes.js')(app);
 
 // listen (start app with node server.js) ======================================
 app.listen(port);
