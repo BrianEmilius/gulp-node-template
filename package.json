@@ -2,16 +2,25 @@
   "name": "gulp-node-template",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
+    "angular": "^1.6.2",
+    "body-parser": "^1.17.0",
+    "express": "^4.15.0",
     "global": "^4.3.1",
     "gulp": "^3.9.1",
     "jshint": "^2.9.4",
+    "materialize": "^1.0.0",
+    "method-override": "^2.3.7",
+    "mongodb": "^2.2.24",
+    "mongoose": "^4.8.5",
+    "morgan": "^1.8.1",
+    "pug": "^2.0.0-beta11",
     "sass": "^0.5.0"
   }
 }
