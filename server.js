@@ -1,6 +1,7 @@
 // set up ======================================================================
 const express        = require('express'),
 	  app            = express(),                     // create our app w/ express
+	  appRoutes      = require('./app/app-routes'),   // application routes
 	  mongoose       = require('mongoose'),           // mongoose for mongodb
 	  database       = require('./config/database'),  // mongodb config
 	  pug			 = require('pug'),				  // pug compiler
@@ -19,7 +20,8 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json', limit: '50mb' })); /
 app.use(methodOverride());
 
 app.set('view engine', 'pug');
-require('./app/app-routes.js')(app);
+app.set('views', __dirname + '/views');
+appRoutes(app);
 
 // listen (start app with node server.js) ======================================
 app.listen(port);

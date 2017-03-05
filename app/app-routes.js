@@ -3,13 +3,15 @@ module.exports = (app) => {
 
 	app.get('/', (req, res) => {
 		res.render('template', {
-			name: 'Brian'
+			title: 'Hello, World!',
+			content: '<p>meh</p>'
 		});
 	});
 
-	app.get('/blargh', (req, res) => {
+	app.get('/name/:test', (req, res) => {
 		res.render('template', {
-			name: 'Blargh'
+			title: req.params.test,
+			content: '<p>whoop whoop!</p>'
 		});
 	});
 }
